@@ -1,0 +1,35 @@
+{
+    "name": "Grammalyze",
+    "version": "0.1.0",
+    "description": "Elevate your writing game with advanced grammar analysis and correction tools.",
+    "permissions": ["storage", "tabs"],
+    "host_permissions": ["https://mail.google.com/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://mail.google.com/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/write.png",
+          "assets/correction.png"
+        ],
+        "matches": ["https://mail.google.com/*"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "assets/ext-icon.png",
+        "24": "assets/ext-icon.png",
+        "32": "assets/ext-icon.png"
+      },
+      "default_title": "Grammalyze",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+  }
